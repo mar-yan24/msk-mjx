@@ -1,0 +1,29 @@
+env:
+  model_path: "models/gait10dof22musc.xml"   # path to MuJoCo XML
+  n_frames: 5
+  forward_reward_weight: 1.25
+  healthy_reward: 5.0
+  ctrl_cost_weight: 0.1
+  min_z: 0.8
+  max_z: 2.0
+  reset_noise_scale: 0.01
+
+solver:
+  type: "rigid"          # "rigid" or "elastic"
+  tau_act: 0.015
+  tau_deact: 0.060
+  n_substeps: 4          # elastic only: MTU sub-steps per physics step
+
+training:
+  algorithm: "ppo"
+  n_envs: 2048
+  total_timesteps: 50_000_000
+  episode_length: 1000
+  learning_rate: 3.0e-4
+  batch_size: 256
+  n_minibatches: 32
+  n_epochs: 4
+  discount: 0.97
+  gae_lambda: 0.95
+  entropy_cost: 0.01
+  normalize_observations: true

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "msk-mjx"
+version = "0.1.0"
+description = "GPU-accelerated musculoskeletal RL with differentiable elastic tendons"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+dependencies = [
+    "jax>=0.4.20",
+    "jaxlib>=0.4.20",
+    "mujoco>=3.0.0",
+    "mujoco-mjx>=3.0.0",
+    "brax>=0.10.0",
+    "gymnasium>=0.29.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-xdist",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/msk_mjx"]
