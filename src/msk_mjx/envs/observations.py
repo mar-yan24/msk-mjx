@@ -22,3 +22,20 @@ def get_proprioceptive_obs(data: mjx.Data) -> jnp.ndarray:
         data.qpos[2:],
         data.qvel,
     ])
+
+
+def get_full_observations(
+    data: mjx.Data,
+    target_velocity: float,
+) -> jnp.ndarray:
+    """Task-aware observation: default obs + target velocity scalar.
+
+    The velocity target is always appended (even when zero) so that the
+    observation size is consistent across task configs.
+    """
+    return jnp.concatenate([
+        data.qpos[2:],
+        data.qvel,
+        data.act,
+        jnp.array([target_velocity]),
+    ])

@@ -3,14 +3,13 @@ env:
   n_frames: 5
 
 task:
-  target_velocity: 1.3
-  # terrain_type: "flat"  # TODO: terrain support
+  target_velocity: 3.0
 
 rewards:
-  forward_reward_weight: 1.25
-  velocity_tracking_weight: 0.0
+  forward_reward_weight: 0.5
+  velocity_tracking_weight: 1.5
   healthy_reward: 5.0
-  ctrl_cost_weight: 0.1
+  ctrl_cost_weight: 0.05
   energy_cost_weight: 0.0
   symmetry_reward_weight: 0.0
   joint_limit_penalty_weight: 0.0
@@ -19,10 +18,10 @@ rewards:
   max_z: 2.0
 
 solver:
-  type: "rigid"          # "rigid" or "elastic"
+  type: "rigid"
   tau_act: 0.015
   tau_deact: 0.060
-  n_substeps: 4          # elastic only: MTU sub-steps per physics step
+  n_substeps: 4
 
 training:
   algorithm: "ppo"
