@@ -1,5 +1,5 @@
 env:
-  model_path: "models/gait10dof22musc.xml"   # path to MuJoCo XML
+  model_path: "models/22muscle_2D/myoLeg22_2D_BASELINE.xml"   # path to MuJoCo XML
   n_frames: 5
   forward_reward_weight: 1.25
   healthy_reward: 5.0

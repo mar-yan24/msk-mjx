@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# JAX
+jax_cache/
+
+# Logs & checkpoints
+logs/
+checkpoints/
+wandb/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
